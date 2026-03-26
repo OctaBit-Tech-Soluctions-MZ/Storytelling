@@ -1,222 +1,290 @@
 <template>
-  <div class="flex min-h-screen flex-col bg-slate-50 font-body text-slate-900 antialiased">
-    <main class="flex min-h-screen items-stretch">
-      <!-- Coluna visual -->
-      <div class="bg-mesh relative hidden overflow-hidden p-16 lg:flex lg:w-1/2 lg:flex-col lg:justify-between">
-        <div class="relative z-10">
-          <div class="font-headline text-2xl font-extrabold tracking-tighter text-white">
-            Executive Precision
-          </div>
+  <div class="flex min-h-screen flex-col bg-[#f5f7fb]">
+    <!-- HEADER -->
+    <nav class="fixed top-0 z-50 w-full bg-slate-50/80 shadow-sm backdrop-blur-md">
+      <div class="mx-auto flex max-w-7xl items-center justify-between px-8 py-4">
+        <!-- Logo -->
+        <RouterLink to="/" class="font-headline text-xl font-bold tracking-tighter text-blue-950">
+          StoryTelling
+        </RouterLink>
+
+        <!-- Menu -->
+        <div class="hidden items-center space-x-8 text-sm font-semibold md:flex">
+          <a class="border-b-2 border-blue-900 pb-1 text-blue-700" href="#">Plataforma</a>
+          <a class="text-slate-600 transition-colors hover:text-blue-900" href="#">Soluções</a>
+          <a class="text-slate-600 transition-colors hover:text-blue-900" href="#">Recursos</a>
         </div>
 
-        <div class="relative z-10 max-w-lg">
-          <h1 class="mb-6 font-headline text-5xl font-extrabold leading-tight tracking-tight text-white">
-            Elevate your digital management.
-          </h1>
+        <!-- Ações -->
+        <div class="flex items-center space-x-4">
+          <RouterLink
+            to="/signin"
+            class="rounded-lg px-4 py-2 text-sm font-semibold text-slate-600 transition-colors hover:bg-slate-100 hover:text-blue-900"
+          >
+            Entrar
+          </RouterLink>
 
-          <p class="text-lg font-light leading-relaxed text-white/70">
-            Join the exclusive tier of executive intelligence. Bespoke tools for meticulous organization and professional growth.
-          </p>
-        </div>
-
-        <div class="relative z-10 flex gap-12">
-          <div class="flex flex-col">
-            <span class="font-headline text-3xl font-bold text-white">99.9%</span>
-            <span class="mt-1 font-label text-xs uppercase tracking-widest text-white/50">
-              Uptime Reliability
-            </span>
-          </div>
-
-          <div class="flex flex-col">
-            <span class="font-headline text-3xl font-bold text-white">24/7</span>
-            <span class="mt-1 font-label text-xs uppercase tracking-widest text-white/50">
-              Dedicated Support
-            </span>
-          </div>
-        </div>
-
-        <!-- Elemento decorativo -->
-        <div class="pointer-events-none absolute bottom-0 right-0 h-full w-full opacity-20">
-          <svg class="h-full w-full" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
-            <path d="M0 400L400 0V400H0Z" fill="white" fill-opacity="0.1"></path>
-            <path d="M0 0L400 400H0V0Z" fill="white" fill-opacity="0.05"></path>
-          </svg>
+          <RouterLink
+            to="/signup"
+            class="rounded-xl bg-[#00143f] px-5 py-2.5 text-sm font-bold text-white shadow-lg transition-transform duration-150 ease-in-out hover:scale-[0.98] active:scale-95"
+          >
+            Começar agora
+          </RouterLink>
         </div>
       </div>
+    </nav>
 
-      <!-- Coluna do formulário -->
-      <div class="flex w-full items-center justify-center bg-slate-50 p-8 md:p-16 lg:w-1/2 lg:p-24">
-        <div class="w-full max-w-md">
-          <div class="mb-12">
-            <h2 class="mb-2 font-headline text-3xl font-bold tracking-tight text-primary">
-              Create Account
-            </h2>
-            <p class="text-sm font-medium text-slate-500">
-              Join the professional network of Executive Precision.
-            </p>
+    <!-- CONTEÚDO -->
+    <div class="flex flex-grow items-center justify-center px-4 pb-10 pt-28">
+      <div class="w-full max-w-md">
+        <!-- Botão voltar -->
+        <div class="mb-6">
+          <RouterLink
+            to="/"
+            class="group inline-flex items-center gap-2 text-sm font-semibold text-slate-500 transition hover:text-[#00143f]"
+          >
+            <span class="transition-transform duration-200 group-hover:-translate-x-1">←</span>
+            Voltar
+          </RouterLink>
+        </div>
+
+        <!-- Card -->
+        <div class="rounded-2xl bg-white p-8 shadow-[0_20px_60px_rgba(15,23,42,0.08)]">
+          <!-- Título -->
+          <div class="mb-8 text-center">
+            <h1 class="text-2xl font-extrabold text-[#00143f]">Criar conta</h1>
+            <p class="mt-2 text-sm text-slate-500">Preencha os seus dados para começar</p>
           </div>
 
-          <form class="space-y-6" @submit.prevent="handleSignUp">
-            <!-- Nome Completo -->
-            <div class="space-y-2">
-              <label class="block font-label text-xs font-bold uppercase tracking-widest text-slate-500">
-                Nome Completo
+          <!-- Form -->
+          <form class="space-y-5" @submit.prevent="handleRegister">
+            <!-- Nome -->
+            <div>
+              <label class="mb-2 block text-xs font-bold uppercase text-slate-500">
+                Nome completo
               </label>
 
               <input
-                v-model="form.fullName"
+                v-model="form.name"
                 type="text"
-                placeholder="Ex: Alexander Hamilton"
-                class="w-full rounded-xl border-none bg-slate-100 px-5 py-4 text-sm font-medium text-slate-900 placeholder:text-slate-400/60 transition-all focus:ring-2 focus:ring-blue-900/20"
-              />
-            </div>
-
-            <!-- Nome de Usuário -->
-            <div class="space-y-2">
-              <label class="block font-label text-xs font-bold uppercase tracking-widest text-slate-500">
-                Nome de Usuário
-              </label>
-
-              <input
-                v-model="form.username"
-                type="text"
-                placeholder="alex_executive"
-                class="w-full rounded-xl border-none bg-slate-100 px-5 py-4 text-sm font-medium text-slate-900 placeholder:text-slate-400/60 transition-all focus:ring-2 focus:ring-blue-900/20"
+                placeholder="Digite o seu nome completo"
+                class="h-12 w-full rounded-xl border border-slate-200 bg-slate-50 px-4 text-sm outline-none transition focus:border-blue-400 focus:bg-white focus:ring-2 focus:ring-blue-100"
               />
             </div>
 
             <!-- Email -->
-            <div class="space-y-2">
-              <label class="block font-label text-xs font-bold uppercase tracking-widest text-slate-500">
-                Email Address
-              </label>
+            <div>
+              <label class="mb-2 block text-xs font-bold uppercase text-slate-500"> Email </label>
 
               <input
                 v-model="form.email"
                 type="email"
-                placeholder="alex@executive.com"
-                class="w-full rounded-xl border-none bg-slate-100 px-5 py-4 text-sm font-medium text-slate-900 placeholder:text-slate-400/60 transition-all focus:ring-2 focus:ring-blue-900/20"
+                placeholder="seuemail@empresa.com"
+                class="h-12 w-full rounded-xl border border-slate-200 bg-slate-50 px-4 text-sm outline-none transition focus:border-blue-400 focus:bg-white focus:ring-2 focus:ring-blue-100"
               />
             </div>
 
-            <!-- Senhas -->
-            <div class="grid grid-cols-1 gap-4 md:grid-cols-2">
-              <div class="space-y-2">
-                <label class="block font-label text-xs font-bold uppercase tracking-widest text-slate-500">
-                  Senha
-                </label>
+            <!-- Senha -->
+            <div>
+              <label class="mb-2 block text-xs font-bold uppercase text-slate-500"> Senha </label>
 
+              <div
+                class="flex items-center rounded-xl border border-slate-200 bg-slate-50 px-4 focus-within:border-blue-400 focus-within:bg-white focus-within:ring-2 focus-within:ring-blue-100"
+              >
                 <input
                   v-model="form.password"
-                  type="password"
-                  placeholder="••••••••"
-                  class="w-full rounded-xl border-none bg-slate-100 px-5 py-4 text-sm font-medium text-slate-900 placeholder:text-slate-400/60 transition-all focus:ring-2 focus:ring-blue-900/20"
+                  :type="showPassword ? 'text' : 'password'"
+                  placeholder="Crie uma senha"
+                  class="h-12 w-full bg-transparent text-sm outline-none"
                 />
 
-                <p class="text-[10px] leading-tight text-slate-500">
-                  Min. 12 characters
-                </p>
+                <button
+                  type="button"
+                  class="text-xs font-semibold text-slate-500 hover:text-[#00143f]"
+                  @click="showPassword = !showPassword"
+                >
+                  {{ showPassword ? 'Ocultar' : 'Mostrar' }}
+                </button>
               </div>
+            </div>
 
-              <div class="space-y-2">
-                <label class="block font-label text-xs font-bold uppercase tracking-widest text-slate-500">
-                  Confirmar Senha
-                </label>
+            <!-- Confirmar senha -->
+            <div>
+              <label class="mb-2 block text-xs font-bold uppercase text-slate-500">
+                Confirmar senha
+              </label>
 
+              <div
+                class="flex items-center rounded-xl border border-slate-200 bg-slate-50 px-4 focus-within:border-blue-400 focus-within:bg-white focus-within:ring-2 focus-within:ring-blue-100"
+              >
                 <input
                   v-model="form.confirmPassword"
-                  type="password"
-                  placeholder="••••••••"
-                  class="w-full rounded-xl border-none bg-slate-100 px-5 py-4 text-sm font-medium text-slate-900 placeholder:text-slate-400/60 transition-all focus:ring-2 focus:ring-blue-900/20"
+                  :type="showConfirmPassword ? 'text' : 'password'"
+                  placeholder="Repita a sua senha"
+                  class="h-12 w-full bg-transparent text-sm outline-none"
                 />
+
+                <button
+                  type="button"
+                  class="text-xs font-semibold text-slate-500 hover:text-[#00143f]"
+                  @click="showConfirmPassword = !showConfirmPassword"
+                >
+                  {{ showConfirmPassword ? 'Ocultar' : 'Mostrar' }}
+                </button>
               </div>
             </div>
 
             <!-- Termos -->
-            <div class="flex items-start gap-3 py-2">
-              <input
-                id="terms"
-                v-model="form.acceptTerms"
-                type="checkbox"
-                class="mt-1 h-4 w-4 rounded border-none bg-slate-200 text-primary focus:ring-0 focus:ring-offset-0"
-              />
-
-              <label for="terms" class="text-xs leading-relaxed text-slate-500">
-                I agree to the
-                <a href="#" class="font-semibold text-blue-800 hover:underline">
-                  Terms of Service
+            <label class="flex items-start gap-2 text-sm text-slate-500">
+              <input v-model="form.acceptTerms" type="checkbox" class="mt-1 h-4 w-4" />
+              <span>
+                Eu aceito os
+                <a href="#" class="font-semibold text-[#00143f] hover:underline">
+                  Termos de Serviço
                 </a>
-                and
-                <a href="#" class="font-semibold text-blue-800 hover:underline">
-                  Privacy Policy
-                </a>.
-              </label>
-            </div>
+                e a
+                <a href="#" class="font-semibold text-[#00143f] hover:underline">
+                  Política de Privacidade </a
+                >.
+              </span>
+            </label>
 
             <!-- Erro -->
-            <p v-if="error" class="text-sm font-medium text-red-600">
+            <p v-if="error" class="text-sm text-red-600">
               {{ error }}
+            </p>
+
+            <!-- Sucesso -->
+            <p v-if="success" class="text-sm text-green-600">
+              {{ success }}
             </p>
 
             <!-- Botão -->
             <button
               type="submit"
-              class="w-full rounded-xl bg-primary py-5 font-headline font-bold text-white shadow-lg shadow-blue-950/10 transition-all hover:bg-blue-900 active:scale-[0.98]"
+              class="h-12 w-full rounded-xl bg-[#00143f] text-sm font-bold text-white transition hover:bg-[#001a52] active:scale-[0.98]"
             >
-              Create Account
+              Criar conta
             </button>
-
-            <!-- Link login -->
-            <div class="pt-8 text-center">
-              <p class="text-sm font-medium text-slate-500">
-                Already part of the suite?
-                <RouterLink
-                  to="/login"
-                  class="ml-1 font-bold text-primary transition-colors hover:text-blue-800"
-                >
-                  Sign In
-                </RouterLink>
-              </p>
-            </div>
           </form>
+
+          <!-- Link login -->
+          <div class="mt-6 text-center">
+            <p class="text-sm text-slate-500">
+              Já tem conta?
+              <RouterLink to="/login" class="font-semibold text-[#00143f] hover:underline">
+                Entrar
+              </RouterLink>
+            </p>
+          </div>
         </div>
       </div>
-    </main>
+    </div>
 
-    <!-- Footer -->
-    <footer class="w-full border-t border-slate-200/20 bg-slate-50">
+    <!-- FOOTER -->
+    <footer class="w-full bg-slate-100 px-8 py-12">
       <div
-        class="mx-auto flex max-w-7xl flex-col items-center justify-between gap-4 px-8 py-12 md:flex-row"
+        class="mx-auto grid max-w-7xl grid-cols-2 gap-8 border-t border-slate-200/20 pt-12 md:grid-cols-4"
       >
-        <div class="font-inter text-xs uppercase tracking-widest text-slate-500">
-          © 2024 Executive Precision. All rights reserved.
+        <div class="col-span-2 space-y-4 md:col-span-1">
+          <div class="font-headline text-lg font-bold text-blue-950">Executive Precision</div>
+          <p class="max-w-xs text-xs font-medium text-slate-500">
+            Elevando o padrão das comunicações corporativas através de tecnologia de ponta e design
+            minimalista.
+          </p>
         </div>
 
-        <div class="flex gap-8">
-          <a
-            href="#"
-            class="font-inter text-xs uppercase tracking-widest text-slate-500 opacity-80 transition-opacity hover:text-blue-700 hover:opacity-100"
-          >
-            Privacy Policy
-          </a>
-          <a
-            href="#"
-            class="font-inter text-xs uppercase tracking-widest text-slate-500 opacity-80 transition-opacity hover:text-blue-700 hover:opacity-100"
-          >
-            Terms of Service
-          </a>
-          <a
-            href="#"
-            class="font-inter text-xs uppercase tracking-widest text-slate-500 opacity-80 transition-opacity hover:text-blue-700 hover:opacity-100"
-          >
-            Security
-          </a>
-          <a
-            href="#"
-            class="font-inter text-xs uppercase tracking-widest text-slate-500 opacity-80 transition-opacity hover:text-blue-700 hover:opacity-100"
-          >
-            Status
-          </a>
+        <div class="space-y-4">
+          <h4 class="text-sm font-bold text-blue-900">Produto</h4>
+          <ul class="space-y-2">
+            <li>
+              <a
+                class="text-xs font-medium text-slate-500 transition-all hover:text-blue-600 hover:underline"
+                href="#"
+                >Funcionalidades</a
+              >
+            </li>
+            <li>
+              <a
+                class="text-xs font-medium text-slate-500 transition-all hover:text-blue-600 hover:underline"
+                href="#"
+                >Empresas</a
+              >
+            </li>
+            <li>
+              <a
+                class="text-xs font-medium text-slate-500 transition-all hover:text-blue-600 hover:underline"
+                href="#"
+                >Segurança</a
+              >
+            </li>
+          </ul>
+        </div>
+
+        <div class="space-y-4">
+          <h4 class="text-sm font-bold text-blue-900">Empresa</h4>
+          <ul class="space-y-2">
+            <li>
+              <a
+                class="text-xs font-medium text-slate-500 transition-all hover:text-blue-600 hover:underline"
+                href="#"
+                >Política de Privacidade</a
+              >
+            </li>
+            <li>
+              <a
+                class="text-xs font-medium text-slate-500 transition-all hover:text-blue-600 hover:underline"
+                href="#"
+                >Termos de Serviço</a
+              >
+            </li>
+            <li>
+              <a
+                class="text-xs font-medium text-slate-500 transition-all hover:text-blue-600 hover:underline"
+                href="#"
+                >LinkedIn</a
+              >
+            </li>
+          </ul>
+        </div>
+
+        <div class="space-y-4">
+          <h4 class="text-sm font-bold text-blue-900">Suporte</h4>
+          <ul class="space-y-2">
+            <li>
+              <a
+                class="text-xs font-medium text-slate-500 transition-all hover:text-blue-600 hover:underline"
+                href="#"
+                >Contactar suporte</a
+              >
+            </li>
+            <li>
+              <a
+                class="text-xs font-medium text-slate-500 transition-all hover:text-blue-600 hover:underline"
+                href="#"
+                >Centro de ajuda</a
+              >
+            </li>
+            <li>
+              <a
+                class="text-xs font-medium text-slate-500 transition-all hover:text-blue-600 hover:underline"
+                href="#"
+                >Documentação da API</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div
+        class="mx-auto mt-12 flex max-w-7xl flex-col items-center justify-between gap-4 border-t border-slate-200/10 pt-8 md:flex-row"
+      >
+        <p class="text-xs font-medium text-slate-500">
+          © 2024 Executive Precision. Todos os direitos reservados.
+        </p>
+        <div class="flex gap-4">
+          <span class="material-symbols-outlined text-slate-400">language</span>
+          <span class="text-xs font-medium text-slate-500">PT-BR</span>
         </div>
       </div>
     </footer>
@@ -228,33 +296,31 @@ import { reactive, ref } from 'vue'
 import { useRouter } from 'vue-router'
 
 const router = useRouter()
+
 const error = ref('')
+const success = ref('')
+const showPassword = ref(false)
+const showConfirmPassword = ref(false)
 
 const form = reactive({
-  fullName: '',
-  username: '',
+  name: '',
   email: '',
   password: '',
   confirmPassword: '',
   acceptTerms: false,
 })
 
-const handleSignUp = () => {
+const handleRegister = () => {
   error.value = ''
+  success.value = ''
 
-  if (
-    !form.fullName ||
-    !form.username ||
-    !form.email ||
-    !form.password ||
-    !form.confirmPassword
-  ) {
+  if (!form.name || !form.email || !form.password || !form.confirmPassword) {
     error.value = 'Preencha todos os campos.'
     return
   }
 
-  if (form.password.length < 12) {
-    error.value = 'A senha deve ter pelo menos 12 caracteres.'
+  if (form.password.length < 6) {
+    error.value = 'A senha deve ter pelo menos 6 caracteres.'
     return
   }
 
@@ -268,39 +334,16 @@ const handleSignUp = () => {
     return
   }
 
-  console.log('Cadastro:', form)
-  router.push('/login')
+  success.value = 'Conta criada com sucesso!'
+
+  setTimeout(() => {
+    router.push('/signin')
+  }, 1200)
 }
 </script>
 
 <style scoped>
-.bg-mesh {
-  background-color: #00143f;
-  background-image:
-    radial-gradient(at 0% 0%, hsla(221, 100%, 15%, 1) 0, transparent 50%),
-    radial-gradient(at 50% 0%, hsla(210, 100%, 25%, 1) 0, transparent 50%),
-    radial-gradient(at 100% 0%, hsla(200, 100%, 35%, 1) 0, transparent 50%);
-}
-
-.font-headline {
-  font-family: 'Manrope', sans-serif;
-}
-
-.font-body,
-.font-label,
-.font-inter {
+* {
   font-family: 'Inter', sans-serif;
-}
-
-.text-primary {
-  color: #00143f;
-}
-
-.bg-primary {
-  background-color: #00143f;
-}
-
-.material-symbols-outlined {
-  font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
 }
 </style>
