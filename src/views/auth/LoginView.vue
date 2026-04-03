@@ -66,7 +66,7 @@
                 v-model="form.email"
                 type="email"
                 placeholder="seuemail@empresa.com"
-                class="h-12 w-full rounded-xl border border-slate-200 bg-slate-50 px-4 text-sm outline-none focus:border-blue-400 focus:bg-white focus:ring-2 focus:ring-blue-100"
+                class="h-12 w-full rounded-xl border border-slate-200 text-black bg-slate-50 px-4 text-sm outline-none focus:border-blue-400 focus:bg-white focus:ring-2 focus:ring-blue-100"
               />
             </div>
 
@@ -81,7 +81,7 @@
                   v-model="form.password"
                   :type="showPassword ? 'text' : 'password'"
                   placeholder="Digite sua senha"
-                  class="h-12 w-full bg-transparent text-sm outline-none"
+                  class="h-12 w-full bg-transparent text-sm text-black outline-none"
                 />
 
                 <button

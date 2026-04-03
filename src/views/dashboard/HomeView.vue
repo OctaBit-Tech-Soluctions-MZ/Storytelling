@@ -44,12 +44,12 @@
             <!-- Coluna esquerda -->
             <div class="col-span-12 space-y-8 xl:col-span-8">
               <div class="rounded-xl bg-slate-100 p-8">
-                <div class="mb-8 flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between">
+                <div
+                  class="mb-8 flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between"
+                >
                   <div>
                     <h2 class="text-xl font-bold text-blue-950">Resumo Operacional</h2>
-                    <p class="mt-1 text-sm text-slate-500">
-                      Status atual de recursos gerados
-                    </p>
+                    <p class="mt-1 text-sm text-slate-500">Status atual de recursos gerados</p>
                   </div>
 
                   <div class="flex gap-4">
@@ -86,7 +86,9 @@
               <div>
                 <div class="mb-6 flex items-center justify-between">
                   <h2 class="text-xl font-bold text-blue-950">Apresentações Recentes</h2>
-                  <button class="flex items-center gap-1 text-sm font-semibold text-blue-950 hover:underline">
+                  <button
+                    class="flex items-center gap-1 text-sm font-semibold text-blue-950 hover:underline"
+                  >
                     Ver todas
                     <span class="material-symbols-outlined text-sm">arrow_forward</span>
                   </button>
@@ -98,7 +100,9 @@
                     :key="presentation.id"
                     class="group flex flex-col gap-6 rounded-xl border border-transparent bg-white p-5 transition-all hover:border-blue-950/5 hover:shadow-lg lg:flex-row lg:items-center"
                   >
-                    <div class="flex h-16 w-24 items-center justify-center overflow-hidden rounded-lg bg-slate-200">
+                    <div
+                      class="flex h-16 w-24 items-center justify-center overflow-hidden rounded-lg bg-slate-200"
+                    >
                       <img
                         :src="presentation.image"
                         alt="Thumbnail"
@@ -107,7 +111,9 @@
                     </div>
 
                     <div class="flex-1">
-                      <h4 class="font-bold text-slate-900 transition-colors group-hover:text-blue-950">
+                      <h4
+                        class="font-bold text-slate-900 transition-colors group-hover:text-blue-950"
+                      >
                         {{ presentation.title }}
                       </h4>
 
@@ -116,12 +122,16 @@
                       </p>
 
                       <div class="mt-3 flex gap-4">
-                        <span class="flex items-center gap-1 text-[10px] font-medium text-slate-500">
+                        <span
+                          class="flex items-center gap-1 text-[10px] font-medium text-slate-500"
+                        >
                           <span class="material-symbols-outlined text-xs">layers</span>
                           {{ presentation.slides }} Slides
                         </span>
 
-                        <span class="flex items-center gap-1 text-[10px] font-medium text-slate-500">
+                        <span
+                          class="flex items-center gap-1 text-[10px] font-medium text-slate-500"
+                        >
                           <span class="material-symbols-outlined text-xs">schedule</span>
                           {{ presentation.time }}
                         </span>
@@ -163,7 +173,9 @@
                       <span class="material-symbols-outlined text-blue-950">{{ action.icon }}</span>
                       <span class="text-sm font-semibold">{{ action.label }}</span>
                     </div>
-                    <span class="material-symbols-outlined text-sm text-slate-400">chevron_right</span>
+                    <span class="material-symbols-outlined text-sm text-slate-400"
+                      >chevron_right</span
+                    >
                   </button>
                 </div>
               </div>
@@ -171,12 +183,10 @@
               <div class="rounded-xl border border-blue-950/5 bg-white p-6">
                 <h3 class="mb-6 text-sm font-bold text-blue-950">Atividade Recente</h3>
 
-                <div class="relative space-y-6 before:absolute before:bottom-2 before:left-2 before:top-2 before:w-px before:bg-slate-100 before:content-['']">
-                  <div
-                    v-for="activity in activities"
-                    :key="activity.id"
-                    class="relative pl-8"
-                  >
+                <div
+                  class="relative space-y-6 before:absolute before:bottom-2 before:left-2 before:top-2 before:w-px before:bg-slate-100 before:content-['']"
+                >
+                  <div v-for="activity in activities" :key="activity.id" class="relative pl-8">
                     <div
                       class="absolute left-0 top-1 h-4 w-4 rounded-full border-4 border-white"
                       :class="activity.active ? 'bg-blue-950' : 'bg-slate-300'"
@@ -185,38 +195,6 @@
                     <p class="text-xs font-bold">{{ activity.title }}</p>
                     <p class="mt-0.5 text-[10px] text-slate-500">{{ activity.time }}</p>
                   </div>
-                </div>
-              </div>
-
-              <div
-                class="group relative overflow-hidden rounded-xl bg-gradient-to-br from-blue-950 to-blue-800 p-6 text-white shadow-2xl shadow-blue-950/30"
-              >
-                <div class="absolute -bottom-4 -right-4 h-24 w-24 rounded-full bg-white/10 blur-2xl transition-transform duration-700 group-hover:scale-150"></div>
-
-                <div class="relative z-10">
-                  <div class="mb-4 flex items-center gap-2">
-                    <span class="material-symbols-outlined rounded-lg bg-white p-1 text-sm text-blue-950">
-                      psychology
-                    </span>
-                    <span class="text-[10px] font-bold uppercase tracking-widest text-white/80">
-                      IA Assistente
-                    </span>
-                  </div>
-
-                  <h3 class="mb-2 text-lg font-bold">
-                    Otimize a sua próxima apresentação
-                  </h3>
-
-                  <p class="mb-6 text-xs leading-relaxed text-white/70">
-                    Deixe nossa inteligência analisar seus slides para garantir máximo impacto executivo.
-                  </p>
-
-                  <button
-                    class="flex w-full items-center justify-center gap-2 rounded-xl bg-white py-3 text-xs font-extrabold text-blue-950 transition-colors hover:bg-white/90"
-                  >
-                    Abrir assistente
-                    <span class="material-symbols-outlined text-sm">bolt</span>
-                  </button>
                 </div>
               </div>
             </div>
@@ -293,7 +271,6 @@ const presentations = [
 ]
 
 const actions = [
-  { id: 1, label: 'Criar Apresentação', icon: 'add_box' },
   { id: 2, label: 'Gerar com IA', icon: 'auto_awesome' },
   { id: 3, label: 'Criar Sala', icon: 'add_home' },
 ]

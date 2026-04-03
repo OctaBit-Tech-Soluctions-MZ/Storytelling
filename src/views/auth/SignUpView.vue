@@ -18,7 +18,7 @@
         <!-- Ações -->
         <div class="flex items-center space-x-4">
           <RouterLink
-            to="/signin"
+            to="/Login"
             class="rounded-lg px-4 py-2 text-sm font-semibold text-slate-600 transition-colors hover:bg-slate-100 hover:text-blue-900"
           >
             Entrar
@@ -68,7 +68,7 @@
                 v-model="form.name"
                 type="text"
                 placeholder="Digite o seu nome completo"
-                class="h-12 w-full rounded-xl border border-slate-200 bg-slate-50 px-4 text-sm outline-none transition focus:border-blue-400 focus:bg-white focus:ring-2 focus:ring-blue-100"
+                class="h-12 w-full rounded-xl border border-slate-200 text-black bg-slate-50 px-4 text-sm outline-none transition focus:border-blue-400 focus:bg-white focus:ring-2 focus:ring-blue-100"
               />
             </div>
 
@@ -80,7 +80,7 @@
                 v-model="form.email"
                 type="email"
                 placeholder="seuemail@empresa.com"
-                class="h-12 w-full rounded-xl border border-slate-200 bg-slate-50 px-4 text-sm outline-none transition focus:border-blue-400 focus:bg-white focus:ring-2 focus:ring-blue-100"
+                class="h-12 w-full rounded-xl border border-slate-200 text-black bg-slate-50 px-4 text-sm outline-none transition focus:border-blue-400 focus:bg-white focus:ring-2 focus:ring-blue-100"
               />
             </div>
 
@@ -95,7 +95,7 @@
                   v-model="form.password"
                   :type="showPassword ? 'text' : 'password'"
                   placeholder="Crie uma senha"
-                  class="h-12 w-full bg-transparent text-sm outline-none"
+                  class="h-12 w-full bg-transparent text-black text-sm outline-none"
                 />
 
                 <button
@@ -121,7 +121,7 @@
                   v-model="form.confirmPassword"
                   :type="showConfirmPassword ? 'text' : 'password'"
                   placeholder="Repita a sua senha"
-                  class="h-12 w-full bg-transparent text-sm outline-none"
+                  class="h-12 w-full bg-transparent text-black text-sm outline-none"
                 />
 
                 <button
@@ -337,7 +337,7 @@ const handleRegister = () => {
   success.value = 'Conta criada com sucesso!'
 
   setTimeout(() => {
-    router.push('/signin')
+    router.push('/login')
   }, 1200)
 }
 </script>
