@@ -118,9 +118,7 @@
                       <span class="material-symbols-outlined text-primary">auto_awesome</span>
                     </div>
                     <div>
-                      <h2 class="font-headline text-xl font-bold text-slate-900">
-                        Geração com IA
-                      </h2>
+                      <h2 class="font-headline text-xl font-bold text-slate-900">Geração com IA</h2>
                       <p class="mt-1 text-sm leading-relaxed text-slate-500">
                         Faça upload do seu documento e receba uma apresentação estruturada em
                         segundos.
@@ -141,9 +139,7 @@
                       <span class="material-symbols-outlined text-cyan-500">sensors</span>
                     </div>
                     <div>
-                      <h2 class="font-headline text-xl font-bold text-slate-900">
-                        Salas ao vivo
-                      </h2>
+                      <h2 class="font-headline text-xl font-bold text-slate-900">Salas ao vivo</h2>
                       <p class="mt-1 text-sm leading-relaxed text-slate-500">
                         Apresente em tempo real para participantes conectados por link ou código
                         único.
@@ -162,9 +158,7 @@
                       <span class="material-symbols-outlined text-slate-600">visibility_off</span>
                     </div>
                     <div>
-                      <h2 class="font-headline text-xl font-bold text-slate-900">
-                        Notas privadas
-                      </h2>
+                      <h2 class="font-headline text-xl font-bold text-slate-900">Notas privadas</h2>
                       <p class="mt-1 text-sm leading-relaxed text-slate-500">
                         Acesse anotações estratégicas sem interromper a visualização do seu público.
                       </p>
@@ -221,7 +215,9 @@
 
     <!-- Rodapé -->
     <footer class="w-full bg-slate-100 px-8 py-12">
-      <div class="mx-auto grid max-w-7xl grid-cols-2 gap-8 border-t border-slate-200/20 pt-12 md:grid-cols-4">
+      <div
+        class="mx-auto grid max-w-7xl grid-cols-2 gap-8 border-t border-slate-200/20 pt-12 md:grid-cols-4"
+      >
         <div class="col-span-2 space-y-4 md:col-span-1">
           <div class="font-headline text-lg font-bold text-blue-950">Executive Precision</div>
           <p class="max-w-xs text-xs font-medium text-slate-500">
@@ -233,27 +229,81 @@
         <div class="space-y-4">
           <h4 class="text-sm font-bold text-blue-900">Produto</h4>
           <ul class="space-y-2">
-            <li><a class="text-xs font-medium text-slate-500 transition-all hover:text-blue-600 hover:underline" href="#">Funcionalidades</a></li>
-            <li><a class="text-xs font-medium text-slate-500 transition-all hover:text-blue-600 hover:underline" href="#">Empresas</a></li>
-            <li><a class="text-xs font-medium text-slate-500 transition-all hover:text-blue-600 hover:underline" href="#">Segurança</a></li>
+            <li>
+              <a
+                class="text-xs font-medium text-slate-500 transition-all hover:text-blue-600 hover:underline"
+                href="#"
+                >Funcionalidades</a
+              >
+            </li>
+            <li>
+              <a
+                class="text-xs font-medium text-slate-500 transition-all hover:text-blue-600 hover:underline"
+                href="#"
+                >Empresas</a
+              >
+            </li>
+            <li>
+              <a
+                class="text-xs font-medium text-slate-500 transition-all hover:text-blue-600 hover:underline"
+                href="#"
+                >Segurança</a
+              >
+            </li>
           </ul>
         </div>
 
         <div class="space-y-4">
           <h4 class="text-sm font-bold text-blue-900">Empresa</h4>
           <ul class="space-y-2">
-            <li><a class="text-xs font-medium text-slate-500 transition-all hover:text-blue-600 hover:underline" href="#">Política de Privacidade</a></li>
-            <li><a class="text-xs font-medium text-slate-500 transition-all hover:text-blue-600 hover:underline" href="#">Termos de Serviço</a></li>
-            <li><a class="text-xs font-medium text-slate-500 transition-all hover:text-blue-600 hover:underline" href="#">LinkedIn</a></li>
+            <li>
+              <a
+                class="text-xs font-medium text-slate-500 transition-all hover:text-blue-600 hover:underline"
+                href="#"
+                >Política de Privacidade</a
+              >
+            </li>
+            <li>
+              <a
+                class="text-xs font-medium text-slate-500 transition-all hover:text-blue-600 hover:underline"
+                href="#"
+                >Termos de Serviço</a
+              >
+            </li>
+            <li>
+              <a
+                class="text-xs font-medium text-slate-500 transition-all hover:text-blue-600 hover:underline"
+                href="#"
+                >LinkedIn</a
+              >
+            </li>
           </ul>
         </div>
 
         <div class="space-y-4">
           <h4 class="text-sm font-bold text-blue-900">Suporte</h4>
           <ul class="space-y-2">
-            <li><a class="text-xs font-medium text-slate-500 transition-all hover:text-blue-600 hover:underline" href="#">Contactar suporte</a></li>
-            <li><a class="text-xs font-medium text-slate-500 transition-all hover:text-blue-600 hover:underline" href="#">Centro de ajuda</a></li>
-            <li><a class="text-xs font-medium text-slate-500 transition-all hover:text-blue-600 hover:underline" href="#">Documentação da API</a></li>
+            <li>
+              <a
+                class="text-xs font-medium text-slate-500 transition-all hover:text-blue-600 hover:underline"
+                href="#"
+                >Contactar suporte</a
+              >
+            </li>
+            <li>
+              <a
+                class="text-xs font-medium text-slate-500 transition-all hover:text-blue-600 hover:underline"
+                href="#"
+                >Centro de ajuda</a
+              >
+            </li>
+            <li>
+              <a
+                class="text-xs font-medium text-slate-500 transition-all hover:text-blue-600 hover:underline"
+                href="#"
+                >Documentação da API</a
+              >
+            </li>
           </ul>
         </div>
       </div>
@@ -273,12 +323,15 @@
   </div>
 </template>
 
-<script setup>
-</script>
+<script setup></script>
 
 <style scoped>
 .material-symbols-outlined {
-  font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+  font-variation-settings:
+    'FILL' 0,
+    'wght' 400,
+    'GRAD' 0,
+    'opsz' 24;
 }
 
 .tonal-layering-no-border {
